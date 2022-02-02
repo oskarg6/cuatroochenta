@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+  app:
+    container_name: app_cuatroochenta
+    build:
+        context: ./deploy/php
+        dockerfile: dockerfile
+    volumes:
+      - ./:/var/www/html:delegated
+    links:
+      - database
+    ports:
+      - 8083:80
+      - 4431:443
+  database:
+    container_name: db_cuatroochenta
+    image: mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+        MYSQL_DATABASE: MY_DATABASE
+        MYSQL_USER: MYSQL_USER
+        MYSQL_PASSWORD: MYSQL_PASSWORD
+    ports:
+        - "33061:3306"
