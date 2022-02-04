@@ -1,9 +1,9 @@
+app.measurement.list:
+    path: /measurement
+    controller: App\Infrastructure\Controller\MeasurementController::list
+app.login.logout:
+    path: /logout
+    controller: App\Infrastructure\Controller\LoginController::index
 app.login.index:
     path: /
     controller: App\Infrastructure\Controller\LoginController::index
-    methods: get
-
-app.login.login:
-    path: /login
-    controller: App\Infrastructure\Controller\LoginController::login
-    methods: post
