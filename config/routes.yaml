@@ -1,3 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app.login.index:
+    path: /
+    controller: App\Infrastructure\Controller\LoginController::index
+    methods: get
+
+app.login.login:
+    path: /login
+    controller: App\Infrastructure\Controller\LoginController::login
+    methods: post
