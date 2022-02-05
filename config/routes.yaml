@@ -1,3 +1,11 @@
+app.register.index:
+    path: /register
+    controller: App\Infrastructure\Controller\RegisterController::index
+    methods: get
+app.register.register:
+    path: /register
+    controller: App\Infrastructure\Controller\RegisterController::register
+    methods: post
 app.measurement.list:
     path: /measurement
     controller: App\Infrastructure\Controller\MeasurementController::list

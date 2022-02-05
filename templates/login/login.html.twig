@@ -6,6 +6,11 @@
     {% if app.user %}
         <div class="mb-3">
             You are logged in as {{ app.user.username }}, <a href="{{ path('app.login.logout') }}">Logout</a>
+            <ul>
+                <li>
+                    <a href="{{ path('app.measurement.list') }}">Measurements</a>
+                </li>
+            </ul>
         </div>
     {% else %}
         <form method="post">
@@ -38,6 +43,9 @@
                 Sign in
             </button>
         </form>
+
+
+        <a href="{{ path('app.register.index') }}">Register</a>
     {% endif %}
 
 {% endblock %}
