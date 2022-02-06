@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class MeasurementController extends AbstractController
 {
+    /**
+     * @return Response
+     */
     public function listView(): Response
     {
         return $this->render('measurement/list.html.twig');

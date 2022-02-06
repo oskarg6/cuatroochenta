@@ -8,6 +8,11 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     *
+     * @return Response
+     */
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         // if ($this->getUser()) {
@@ -22,6 +27,9 @@ class LoginController extends AbstractController
         return $this->render('login/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
+    /**
+     * logout
+     */
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

@@ -20,6 +20,9 @@ class RegisterController extends AbstractController
      */
     private $registerUserFeature;
 
+    /**
+     * @var AppCustomAuthenticator
+     */
     private $appCustomAuthenticator;
 
     public function __construct(RegisterUserFeature $registerUserFeature, AppCustomAuthenticator $appCustomAuthenticator)
