@@ -1,15 +1,17 @@
 <?php
-namespace App\Application\Service;
+namespace App\Application\Service\CreateUser;
 
 use App\Application\Feature\RegisterUser\CreateUserServiceInterface as RegisterUserFeature;
 use App\Domain\Entity\User;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * CreateUserService
  */
 class CreateUserService implements RegisterUserFeature
 {
+    /**
+     * @var UserPasswordHasherInterface
+     */
     private $passwordHasher;
 
     public function __construct(UserPasswordHasherInterface $passwordHasher)

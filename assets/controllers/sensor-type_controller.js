@@ -10,7 +10,7 @@ export default class extends Controller {
         this.getSensorTypeList().then((response) => {
             let list = '';
             response.data.forEach((sensorType) => {
-                list += '<option value"'+sensorType.id+'">'+sensorType.name+'</option>';
+                list += '<option value="'+sensorType.id+'">'+sensorType.name+'</option>';
             });
 
             this.element.innerHTML = list;

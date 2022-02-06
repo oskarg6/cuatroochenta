@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Repository;
 
+use App\Application\Feature\RegisterSensor\SensorRepositoryInterface as RegisterSensorFeature;
 use App\Domain\Entity\Sensor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,7 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Sensor[]    findAll()
  * @method Sensor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SensorRepository extends ServiceEntityRepository
+class SensorRepository extends ServiceEntityRepository implements RegisterSensorFeature
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -47,4 +48,16 @@ class SensorRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param Sensor $sensor
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Sensor $sensor): void
+    {
+        $this->_em->persist($sensor);
+        $this->_em->flush();
+    }
 }

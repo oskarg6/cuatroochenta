@@ -2,11 +2,11 @@
 
 namespace App\Tests\unit\Application\Service;
 
-use App\Application\Service\CreateUserService;
+use App\Application\Service\CreateUser\UserPasswordHasherInterface;
+use App\Application\Service\CreateUser\CreateUserService;
 use App\Domain\Entity\User;
 use Codeception\Test\Unit;
 use Mockery;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class CreateUserServiceTest extends Unit
 {

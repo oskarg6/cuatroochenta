@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Repository;
 
 use App\Application\Feature\ListSensorType\SensorTypeRepositoryInterface as ListSensorTypeFeature;
+use App\Application\Feature\RegisterSensor\SensorTypeRepositoryInterface as RegisterSensorFeature;
 use App\Domain\Entity\SensorType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -13,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method SensorType[]    findAll()
  * @method SensorType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SensorTypeRepository extends ServiceEntityRepository implements ListSensorTypeFeature
+class SensorTypeRepository extends ServiceEntityRepository implements ListSensorTypeFeature, RegisterSensorFeature
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -59,6 +60,22 @@ class SensorTypeRepository extends ServiceEntityRepository implements ListSensor
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
+            ;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return SensorType|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findById(int $id): ?SensorType
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
             ;
     }
 }

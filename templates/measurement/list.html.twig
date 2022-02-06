@@ -49,13 +49,17 @@
         <div class="title">
             <h3>Create Sensor</h3>
         </div>
-        <form id="sensor-form">
-            <input type="text" name="name" />
-            <input type="text" name="value" />
-            <select name="type" data-controller="sensor-type">
+        <form id="sensor-form" data-controller="register-sensor" data-action="register-sensor#submit">
+            <label for="inputName">Name:</label>
+            <input type="text" name="name" id="inputName" data-register-sensor-target="name" />
+            <label for="inputValue">Value:</label>
+            <input type="text" name="value"  id="inputValue" data-register-sensor-target="value" />
+            <label for="inputSensorType">Sensor Type:</label>
+            <select name="type" data-controller="sensor-type" id="inputSensorType" data-register-sensor-target="type">
 
             </select>
             <button type="submit">Create</button>
+            <p data-register-sensor-target="message"></p>
         </form>
     </div>
 {% endblock %}
