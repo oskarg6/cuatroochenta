@@ -1,13 +1,12 @@
 <?php
 namespace App\Application\Feature\RegisterUser;
 
-use App\Application\Service\CreateUserService;
 use App\Domain\Entity\User;
 
 class RegisterUserFeature
 {
     /**
-     * @var CreateUserService
+     * @var CreateUserServiceInterface
      */
     private $createUserService;
 
@@ -16,7 +15,7 @@ class RegisterUserFeature
      */
     private $userRepository;
 
-    public function __construct(CreateUserService $createUserService, UserRepositoryInterface $userRepository)
+    public function __construct(CreateUserServiceInterface $createUserService, UserRepositoryInterface $userRepository)
     {
         $this->createUserService = $createUserService;
         $this->userRepository = $userRepository;

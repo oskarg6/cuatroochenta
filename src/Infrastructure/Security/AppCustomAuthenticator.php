@@ -53,7 +53,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app.measurement.list'));
+        return new RedirectResponse($this->urlGenerator->generate('app.measurement.list.view'));
     }
 
     protected function getLoginUrl(Request $request): string

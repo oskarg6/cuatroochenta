@@ -1,3 +1,7 @@
+app.api.measurement.list:
+    path: /api/measurement
+    controller: App\Infrastructure\Controller\Api\MeasurementController::list
+    methods: get
 app.register.index:
     path: /register
     controller: App\Infrastructure\Controller\RegisterController::index
@@ -6,9 +10,9 @@ app.register.register:
     path: /register
     controller: App\Infrastructure\Controller\RegisterController::register
     methods: post
-app.measurement.list:
+app.measurement.list.view:
     path: /measurement
-    controller: App\Infrastructure\Controller\MeasurementController::list
+    controller: App\Infrastructure\Controller\MeasurementController::listView
 app.login.logout:
     path: /logout
     controller: App\Infrastructure\Controller\LoginController::index

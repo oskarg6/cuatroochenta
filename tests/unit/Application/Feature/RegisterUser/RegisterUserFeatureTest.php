@@ -2,10 +2,10 @@
 
 namespace App\Tests\unit\Application\Feature\RegisterUser;
 
+use App\Application\Feature\RegisterUser\CreateUserServiceInterface;
 use App\Application\Feature\RegisterUser\ExistsUserException;
 use App\Application\Feature\RegisterUser\RegisterUserFeature;
 use App\Application\Feature\RegisterUser\UserRepositoryInterface;
-use App\Application\Service\CreateUserService;
 use App\Domain\Entity\User;
 use Codeception\Test\Unit;
 use Exception;
@@ -19,7 +19,7 @@ class RegisterUserFeatureTest extends Unit
     protected function _before()
     {
         $user = Mockery::mock(User::class);
-        $this->createUserService = Mockery::mock(CreateUserService::class);
+        $this->createUserService = Mockery::mock(CreateUserServiceInterface::class);
         $this->createUserService->shouldReceive('create')->andReturn($user);
 
         $this->userRepository = Mockery::mock(UserRepositoryInterface::class);

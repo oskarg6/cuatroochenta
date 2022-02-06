@@ -3,5 +3,70 @@
 {% block title %}Measurements{% endblock %}
 
 {% block body %}
-    Listado de maesurements
+    <div class="measurament--section" data-controller="measurement">
+        <div class="title">
+            <h3>Measurament List</h3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Year</th>
+                    <th>Type</th>
+                    <th>Color</th>
+                    <th>Varitey</th>
+                    <th>Temperature</th>
+                    <th>Graduation</th>
+                    <th>PH</th>
+                    <th>Observations</th>
+                    <th>Wine</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>id</td>
+                <td>Year</td>
+                <td>Type</td>
+                <td>Color</td>
+                <td>Varitey</td>
+                <td>Temperature</td>
+                <td>Graduation</td>
+                <td>PH</td>
+                <td>Observations</td>
+                <td>Wine</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="sensor--section">
+        <div class="title">
+            <h3>Sensor List<h/3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="sensor-form--section">
+        <div class="title">
+            <h3>Create Sensor</h3>
+        </div>
+        <form id="sensor-form">
+            <input type="text" name="name" />
+            <input type="text" name="value" />
+            <select name="type">
+
+            </select>
+            <button type="submit">Create</button>
+        </form>
+    </div>
 {% endblock %}
