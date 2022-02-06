@@ -27,9 +27,9 @@
             </tbody>
         </table>
     </div>
-    <div class="sensor--section">
+    <div class="sensor--section" data-controller="sensor">
         <div class="title">
-            <h3>Sensor List<h/3>
+            <h3>Sensor List</h3>
         </div>
         <table class="table">
             <thead>
@@ -40,10 +40,11 @@
                     <th>Type</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody data-sensor-target="table">
 
             </tbody>
         </table>
+        <button data-action="sensor#actualize" >Actualize Sensor List</button>
     </div>
     <div class="sensor-form--section">
         <div class="title">

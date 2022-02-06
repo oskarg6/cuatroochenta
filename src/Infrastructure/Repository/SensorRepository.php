@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Repository;
 
+use App\Application\Feature\ListSensor\SensorRepositoryInterface as ListSensorFeature;
 use App\Application\Feature\RegisterSensor\SensorRepositoryInterface as RegisterSensorFeature;
 use App\Domain\Entity\Sensor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -13,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Sensor[]    findAll()
  * @method Sensor[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SensorRepository extends ServiceEntityRepository implements RegisterSensorFeature
+class SensorRepository extends ServiceEntityRepository implements RegisterSensorFeature, ListSensorFeature
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -59,5 +60,15 @@ class SensorRepository extends ServiceEntityRepository implements RegisterSensor
     {
         $this->_em->persist($sensor);
         $this->_em->flush();
+    }
+
+    public function getAll(): array
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }
