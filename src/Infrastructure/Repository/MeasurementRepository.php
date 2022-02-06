@@ -51,7 +51,7 @@ class MeasurementRepository extends ServiceEntityRepository implements Measureme
     */
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getAll(): array
     {

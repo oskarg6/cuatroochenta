@@ -17,11 +17,17 @@ class MeasurementController extends AbstractController
      */
     private $listMeasurementFeature;
 
+    /**
+     * @param ListMeasurementFeature $listMeasurementFeature
+     */
     public function __construct(ListMeasurementFeature $listMeasurementFeature)
     {
         $this->listMeasurementFeature = $listMeasurementFeature;
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function list(): JsonResponse
     {
         $measurementList = $this->listMeasurementFeature->listAll();

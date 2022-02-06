@@ -2,6 +2,10 @@ app.api.measurement.list:
     path: /api/measurement
     controller: App\Infrastructure\Controller\Api\MeasurementController::list
     methods: get
+app.api.sensor_type.list:
+    path: /api/sensor-type
+    controller: App\Infrastructure\Controller\Api\SensorTypeController::list
+    methods: get
 app.register.index:
     path: /register
     controller: App\Infrastructure\Controller\RegisterController::index

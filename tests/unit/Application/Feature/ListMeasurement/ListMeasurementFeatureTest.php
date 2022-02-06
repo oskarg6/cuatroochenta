@@ -28,7 +28,7 @@ class ListMeasurementFeatureTest extends Unit
         $this->measurementDTOAssembler->shouldReceive('create')->andReturn($measurementDTO);
     }
 
-    public function testListMeasurement()
+    public function testListAll()
     {
         $listMeasurementFeature = new ListMeasurementFeature($this->measurementRepository, $this->measurementDTOAssembler);
 
