@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Repository;
 
 use App\Application\Feature\ListMeasurement\MeasurementRepositoryInterface as MeasurementListFeature;
+use App\Application\Feature\RegisterMeasurement\MeasurementRepositoryInterface as RegisterMeasurementFeature;
 use App\Domain\Entity\Measurement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,7 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Measurement[]    findAll()
  * @method Measurement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MeasurementRepository extends ServiceEntityRepository implements MeasurementListFeature
+class MeasurementRepository extends ServiceEntityRepository implements MeasurementListFeature, RegisterMeasurementFeature
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -57,9 +58,15 @@ class MeasurementRepository extends ServiceEntityRepository implements Measureme
     {
         return $this->createQueryBuilder('m')
             ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(20)
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function save(Measurement $measurement): void
+    {
+        $this->_em->persist($measurement);
+        $this->_em->flush();
     }
 }

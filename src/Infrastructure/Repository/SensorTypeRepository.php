@@ -57,7 +57,7 @@ class SensorTypeRepository extends ServiceEntityRepository implements ListSensor
     {
         return $this->createQueryBuilder('s')
             ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(20)
             ->getQuery()
             ->getResult()
             ;

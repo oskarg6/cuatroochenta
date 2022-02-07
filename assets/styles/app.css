@@ -12,3 +12,7 @@ body {
     background: #F5F5F5;
     padding: 2px 6px;
 }
+
+.input-wrapper {
+    width: 100%;
+}

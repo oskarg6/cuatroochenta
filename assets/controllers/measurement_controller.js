@@ -2,7 +2,13 @@ import { Controller } from '@hotwired/stimulus';
 import axios from 'axios';
 
 export default class extends Controller {
+    static targets = [ 'table' ];
+
     connect() {
+        this.load();
+    }
+
+    actualize() {
         this.load();
     }
 
@@ -22,7 +28,7 @@ export default class extends Controller {
                     '<td>'+measurement.wine+'</td></tr>';
             });
 
-            this.element.innerHTML = list;
+            this.tableTarget.innerHTML = list;
         });
     }
 

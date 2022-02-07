@@ -66,7 +66,7 @@ class SensorRepository extends ServiceEntityRepository implements RegisterSensor
     {
         return $this->createQueryBuilder('s')
             ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(20)
             ->getQuery()
             ->getResult()
             ;

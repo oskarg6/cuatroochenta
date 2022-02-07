@@ -3,7 +3,7 @@
 {% block title %}Measurements{% endblock %}
 
 {% block body %}
-    <div class="measurament--section">
+    <div class="measurament--section" data-controller="measurement">
         <div class="title">
             <h3>Measurament List</h3>
         </div>
@@ -22,10 +22,63 @@
                     <th>Wine</th>
                 </tr>
             </thead>
-            <tbody data-controller="measurement">
+            <tbody data-measurement-target="table">
 
             </tbody>
         </table>
+        <button data-action="measurement#actualize" >Actualize Measurement List</button>
+    </div>
+    <div class="measurement-form--section">
+        <div class="title">
+            <h3>Create Measurement</h3>
+        </div>
+        <form id="measurement-form" data-controller="register-measurement" data-action="register-measurement#submit">
+            <div class="input-wrapper">
+                <label for="inputYear">Year:</label>
+                <input type="number" name="year" id="inputYear" data-register-measurement-target="year" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputType">Type:</label>
+                <select name="type" id="inputType" data-register-measurement-target="type">
+                    <option value="type1">type1</option>
+                    <option value="type2">type2</option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <label for="inputColor">Color:</label>
+                <input type="text" name="color" id="inputColor" data-register-measurement-target="color" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputVariety">Variety:</label>
+                <select name="variety" id="inputVariety" data-register-measurement-target="variety">
+                    <option value="variety1">variety1</option>
+                    <option value="variety2">variety2</option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <label for="inputTemperature">Temperature:</label>
+                <input type="number" step="0.01" name="temperature" id="inputTemperature" data-register-measurement-target="temperature" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputGraduation">Graduation:</label>
+                <input type="number" step="0.01" name="temperature" id="inputGraduation" data-register-measurement-target="graduation" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputPh">PH:</label>
+                <input type="number" step="0.01" name="ph" id="inputPh" data-register-measurement-target="ph" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputObservations">Observations:</label>
+                <input type="text" name="observations" id="inputObservations" data-register-measurement-target="observations" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputWine">Wine:</label>
+                <input type="text" name="wine" id="inputWine" data-register-measurement-target="wine" />
+            </div>
+
+            <button type="submit">Create</button>
+            <p data-register-measurement-target="message"></p>
+        </form>
     </div>
     <div class="sensor--section" data-controller="sensor">
         <div class="title">
@@ -51,14 +104,20 @@
             <h3>Create Sensor</h3>
         </div>
         <form id="sensor-form" data-controller="register-sensor" data-action="register-sensor#submit">
-            <label for="inputName">Name:</label>
-            <input type="text" name="name" id="inputName" data-register-sensor-target="name" />
-            <label for="inputValue">Value:</label>
-            <input type="text" name="value"  id="inputValue" data-register-sensor-target="value" />
-            <label for="inputSensorType">Sensor Type:</label>
-            <select name="type" data-controller="sensor-type" id="inputSensorType" data-register-sensor-target="type">
+            <div class="input-wrapper">
+                <label for="inputName">Name:</label>
+                <input type="text" name="name" id="inputName" data-register-sensor-target="name" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputValue">Value:</label>
+                <input type="number" step="0.01" name="value"  id="inputValue" data-register-sensor-target="value" />
+            </div>
+            <div class="input-wrapper">
+                <label for="inputSensorType">Sensor Type:</label>
+                <select name="type" data-controller="sensor-type" id="inputSensorType" data-register-sensor-target="type">
 
-            </select>
+                </select>
+            </div>
             <button type="submit">Create</button>
             <p data-register-sensor-target="message"></p>
         </form>

@@ -9,7 +9,6 @@ export default class extends Controller {
     }
 
     actualize() {
-        console.log('actualize');
         this.load();
     }
 
