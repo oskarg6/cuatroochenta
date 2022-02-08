@@ -1,6 +1,6 @@
 cuatroochenta Test By oskarg6
 
-En éste proyecto es un administrador para poder registrar mediciones a vinos.
+Este proyecto es un administrador para poder registrar mediciones a vinos.
 Actualmente el administrador consta:
  - login
  - register
