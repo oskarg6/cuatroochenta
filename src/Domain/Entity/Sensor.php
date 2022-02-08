@@ -18,12 +18,12 @@ class Sensor
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", unique=false)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="float", unique=true)
+     * @ORM\Column(type="float", unique=false)
      */
     private $value;
 
