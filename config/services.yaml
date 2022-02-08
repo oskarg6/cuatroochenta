@@ -10,6 +10,7 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -18,7 +19,44 @@ services:
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Domain/Entity/'
+            - '../src/Application/DTO/'
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Application\Assembler\Measurement\MeasurementDTOAssembler:
+        class: App\Application\Assembler\Measurement\MeasurementDTOAssembler
+        public: true
+    App\Application\Assembler\Sensor\SensorDTOAssembler:
+        class: App\Application\Assembler\Sensor\SensorDTOAssembler
+        public: true
+    App\Application\Assembler\SensorType\SensorTypeDTOAssembler:
+        class: App\Application\Assembler\SensorType\SensorTypeDTOAssembler
+        public: true
+    App\Application\Feature\ListMeasurement\ListMeasurementFeature:
+        class: App\Application\Feature\ListMeasurement\ListMeasurementFeature
+        public: true
+    App\Application\Feature\ListSensor\ListSensorFeature:
+        class: App\Application\Feature\ListSensor\ListSensorFeature
+        public: true
+    App\Application\Feature\ListSensorType\ListSensorTypeFeature:
+        class: App\Application\Feature\ListSensorType\ListSensorTypeFeature
+        public: true
+    App\Application\Feature\RegisterMeasurement\RegisterMeasurementFeature:
+        class: App\Application\Feature\RegisterMeasurement\RegisterMeasurementFeature
+        public: true
+    App\Application\Feature\RegisterSensor\RegisterSensorFeature:
+        class: App\Application\Feature\RegisterSensor\RegisterSensorFeature
+        public: true
+    App\Application\Feature\RegisterUser\RegisterUserFeature:
+        class: App\Application\Feature\RegisterUser\RegisterUserFeature
+        public: true
+    App\Application\Service\CreateMeasurement\CreateMeasurementService:
+        class: App\Application\Service\CreateMeasurement\CreateMeasurementService
+        public: true
+    App\Application\Service\CreateSensor\CreateSensorService:
+        class: App\Application\Service\CreateSensor\CreateSensorService
+        public: true
+    App\Application\Service\CreateUser\CreateUserService:
+        class: App\Application\Service\CreateUser\CreateUserService
+        public: true
